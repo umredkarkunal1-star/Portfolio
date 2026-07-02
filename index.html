@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Umredkar's portfolio</title>
+    <meta name="description" content="Portfolio of Kunal Umredkar, BCA 2nd Year student, Web Developer, and Cybersecurity Enthusiast. Explore my projects, skills, and get in touch for collaborations.">
+    <meta name="keywords" content="Kunal Umredkar, Web Developer, Cybersecurity, Portfolio, BCA Student, Data Analyst, India">
+    <meta name="author" content="Kunal Umredkar">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kunal Umredkar | Portfolio">
+    <meta property="og:description" content="Personal portfolio of Kunal Umredkar - BCA Student, Web Developer, and Cybersecurity Enthusiast.">
+    <meta property="og:url" content="https://kunalumredkar.dev/"> <!-- Placeholder URL -->
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon Placeholder -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Mouse Custom Glow Effect (Desktop Only) -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Background Decoration Blobs -->
+    <div class="blob-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Header / Navigation Bar -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-accent">&lt;</span>KU<span class="logo-accent">/&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <a href="#contact" class="btn btn-sm btn-nav">Let's Talk</a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <main>
+        <!-- 1. Home / Hero Section -->
+        <section id="home" class="hero-section section-reveal">
+            <!-- Spline 3D Background Canvas -->
+            <!-- Only render and load on larger screens (desktop/laptop 1024px+). -->
+            <canvas id="splineCanvas3D" class="spline-canvas" aria-hidden="true"></canvas>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-greeting animate-fade-in" style="--delay: 1">Hello, I'm</span>
+                    <h1 class="hero-name animate-fade-in" style="--delay: 2">Kunal Umredkar</h1>
+                    <div class="hero-roles animate-fade-in" style="--delay: 3">
+                        <span class="role-prefix">A</span>
+                        <span id="role-text" class="role-text"></span><span class="typing-cursor">|</span>
+                    </div>
+                    <p class="hero-intro animate-fade-in" style="--delay: 4">
+                        Passionate about Web Development, Cybersecurity, AI, Data Science, and building innovative digital solutions.
+                    </p>
+                    <div class="hero-actions animate-fade-in" style="--delay: 5">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View Projects</span>
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Contact Me</span>
+                            <i data-lucide="mail"></i>
+                        </a>
+                        <a href="https://wa.me/918767373962" target="_blank" rel="noopener noreferrer" class="btn btn-collaborate">
+                            <span>Let's Collaborate</span>
+                            <i data-lucide="users"></i>
+                        </a>
+                        
+                    </div>
+
+                    <div class="hero-socials animate-fade-in" style="--delay: 6">
+                        <span class="socials-title">Follow / Connect</span>
+                        <div class="social-capsules">
+                            <a href="https://github.com/umredkarkunal-star" target="_blank" rel="noopener noreferrer" class="social-capsule github" data-tooltip="GitHub Profile">
+                                <i data-lucide="github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/kunal-umredkar-904a163a3" target="_blank" rel="noopener noreferrer" class="social-capsule linkedin" data-tooltip="LinkedIn Profile">
+                                <i data-lucide="linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://instagram.com/kunal_umredkar18" target="_blank" rel="noopener noreferrer" class="social-capsule instagram" data-tooltip="Instagram Profile">
+                                <i data-lucide="instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="mailto:umredkarkunal1@gmail.com" class="social-capsule email" data-tooltip="Send Email">
+                                <i data-lucide="mail"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="https://wa.me/918767373962" target="_blank" rel="noopener noreferrer" class="social-capsule whatsapp" data-tooltip="Chat on WhatsApp">
+                                <svg class="svg-social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.364 5.636A8.966 8.966 0 0012 3c-4.968 0-9 4.032-9 9 0 1.724.484 3.398 1.4 4.842L3 21l4.298-1.346A8.956 8.956 0 0012 21c4.968 0 9-4.032 9-9 0-2.404-.936-4.664-2.636-6.364zM12 19.2c-1.572 0-3.116-.42-4.47-1.214l-.32-.19-2.525.79.803-2.463-.208-.33A7.16 7.16 0 014.2 12c0-3.97 3.23-7.2 7.2-7.2 1.922 0 3.73.748 5.091 2.109C17.852 8.27 18.6 10.078 18.6 12c0 3.97-3.23 7.2-7.2 7.2zm3.957-5.407c-.217-.11-.275-.138-.415-.36-.083-.131-.19-.34-.33-.522-.167-.215-.226-.29-.395-.456-.17-.165-.3-.263-.448-.373-.243-.18-.466-.27-.723-.105-.145.093-.277.215-.417.337l-.28.243c-.167.14-.265.17-.414.061-.264-.194-.576-.412-.876-.642-.456-.35-.856-.745-1.127-1.112-.134-.183-.092-.284.053-.448l.261-.295c.08-.09.13-.173.184-.258.077-.123.109-.234.048-.363-.03-.06-.153-.38-.285-.718-.135-.347-.282-.71-.383-.872-.116-.188-.246-.226-.41-.226H9.15c-.193 0-.394.07-.56.242a2.38 2.38 0 00-.74 1.758c0 1.25.545 2.457 1.34 3.51 1.206 1.6 2.76 2.66 4.35 3.236.474.172.95.27 1.408.27.72 0 1.378-.328 1.684-.633.32-.32.686-.888.776-1.346.06-.31.025-.572-.02-.663-.045-.09-.165-.145-.39-.257z"/>
+                                </svg>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="about-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Get To Know Me</span>
+                    <h2 class="title">About Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Left: About Content & Info Cards -->
+                    <div class="about-content">
+                        <p class="about-text">
+                            I am <strong>Kunal Umredkar</strong>, a BCA 2nd-year student passionate about technology, web development, cybersecurity, AI, data science, and innovation.
+                        </p>
+                        <p class="about-text">
+                            I enjoy building real-world applications, learning new technologies, and continuously improving my skills. My goal is to become a <strong>Cybersecurity Expert</strong> and <strong>Data Analyst</strong> while creating impactful digital solutions that solve real-world problems.
+                        </p>
+
+                        <!-- Information Cards Grid -->
+                        <div class="info-cards-grid">
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="graduation-cap"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Education</h4>
+                                    <p>BCA 2nd Year</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Location</h4>
+                                    <p>India</p>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:umredkarkunal1@gmail.com">umredkarkunal1@gmail.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Phone</h4>
+                                    <p><a href="tel:+918767373962">+91 8767373962</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Stats Row -->
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="40">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Tech Skills</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="2">0</span><span class="stat-plus">nd</span>
+                                <span class="stat-label">Year BCA Student</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Large Professional Image -->
+                    <div class="about-image-wrapper">
+                        <div class="profile-image-frame">
+                            <div class="image-placeholder-inner">
+                                <img src="new.image.jpeg" alt="Portrait of Kunal Umredkar" class="profile-image">
+                            </div>
+                            <!-- Frame Borders Decoration -->
+                            <div class="frame-border corner-tl"></div>
+                            <div class="frame-border corner-tr"></div>
+                            <div class="frame-border corner-bl"></div>
+                            <div class="frame-border corner-br"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills Section -->
+        <section id="skills" class="skills-section scroll-trigger">
+            <!-- Background floating shape decorations -->
+            <div class="skills-decorations">
+                <div class="decor-shape shape-1"></div>
+                <div class="decor-shape shape-2"></div>
+            </div>
+
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">My Capabilities</span>
+                    <h2 class="title">My Skills</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="skills-grid-container">
+                    <div class="skills-grid" id="skillsGrid">
+                        <!-- 1. HTML -->
+                        <div class="skill-card card-reveal" data-category="web-dev">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #E34F26">
+                                    <i data-lucide="code-2"></i>
+                                </div>
+                                <span class="skill-category">Web Dev</span>
+                            </div>
+                            <h3>HTML</h3>
+                            <p class="skill-desc">Structuring modern, semantic, and highly accessible web layouts.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="96">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="96"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. CSS -->
+                        <div class="skill-card card-reveal" data-category="web-dev">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #1572B6">
+                                    <i data-lucide="palette"></i>
+                                </div>
+                                <span class="skill-category">Web Dev</span>
+                            </div>
+                            <h3>CSS</h3>
+                            <p class="skill-desc">Styling responsive layouts with variables, Flexbox, Grid, and animations.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="95">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="95"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. JavaScript -->
+                        <div class="skill-card card-reveal" data-category="web-dev">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #F7DF1E">
+                                    <i data-lucide="braces"></i>
+                                </div>
+                                <span class="skill-category">Web Dev</span>
+                            </div>
+                            <h3>JavaScript</h3>
+                            <p class="skill-desc">Developing dynamic client-side logic, ES6+ scripts, and interactive features.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="93">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="93"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Responsive Web Design -->
+                        <div class="skill-card card-reveal" data-category="web-dev">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #10B981">
+                                    <i data-lucide="tablet-smartphone"></i>
+                                </div>
+                                <span class="skill-category">Web Dev</span>
+                            </div>
+                            <h3>Responsive Web Design</h3>
+                            <p class="skill-desc">Crafting fluid, mobile-first designs that scale beautifully across devices.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="97">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="97"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Front-End Development -->
+                        <div class="skill-card card-reveal" data-category="web-dev">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #6366F1">
+                                    <i data-lucide="layout"></i>
+                                </div>
+                                <span class="skill-category">Web Dev</span>
+                            </div>
+                            <h3>Front-End Development</h3>
+                            <p class="skill-desc">Building high-performance, interactive, and visually stunning interfaces.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="96">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="96"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Python -->
+                        <div class="skill-card card-reveal" data-category="programming">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #3776AB">
+                                    <i data-lucide="terminal"></i>
+                                </div>
+                                <span class="skill-category">Programming</span>
+                            </div>
+                            <h3>Python</h3>
+                            <p class="skill-desc">Coding clean scripts, cybersecurity tools, data structures, and automation.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="97">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="97"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. SQL -->
+                        <div class="skill-card card-reveal" data-category="programming">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #00758F">
+                                    <i data-lucide="database"></i>
+                                </div>
+                                <span class="skill-category">Programming</span>
+                            </div>
+                            <h3>SQL</h3>
+                            <p class="skill-desc">Designing relational schemas, writing queries, and optimizing databases.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="92">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="92"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. C++ -->
+                        <div class="skill-card card-reveal" data-category="programming">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #00599C">
+                                    <i data-lucide="cpu"></i>
+                                </div>
+                                <span class="skill-category">Programming</span>
+                            </div>
+                            <h3>C++</h3>
+                            <p class="skill-desc">Writing low-level systems code, object-oriented solutions, and algorithms.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="91">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="91"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9. Pandas -->
+                        <div class="skill-card card-reveal" data-category="programming">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #150458">
+                                    <i data-lucide="table"></i>
+                                </div>
+                                <span class="skill-category">Data Science</span>
+                            </div>
+                            <h3>Pandas</h3>
+                            <p class="skill-desc">Manipulating data structures, merging datasets, and cleaning raw data.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="95">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="95"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10. NumPy -->
+                        <div class="skill-card card-reveal" data-category="programming">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #013243">
+                                    <i data-lucide="hash"></i>
+                                </div>
+                                <span class="skill-category">Data Science</span>
+                            </div>
+                            <h3>NumPy</h3>
+                            <p class="skill-desc">Computing multi-dimensional arrays, matrices, and math operations.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="94">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="94"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 11. Data Analytics -->
+                        <div class="skill-card card-reveal" data-category="programming">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #F97316">
+                                    <i data-lucide="bar-chart-3"></i>
+                                </div>
+                                <span class="skill-category">Data Science</span>
+                            </div>
+                            <h3>Data Analytics</h3>
+                            <p class="skill-desc">Transforming raw datasets into actionable insights, charts, and patterns.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="92">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="92"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12. Prompt Engineering -->
+                        <div class="skill-card card-reveal" data-category="ai-tech">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #EC4899">
+                                    <i data-lucide="wand-2"></i>
+                                </div>
+                                <span class="skill-category">AI Tech</span>
+                            </div>
+                            <h3>Prompt Engineering</h3>
+                            <p class="skill-desc">Structuring precise prompt templates, context boundaries, and LLM guides.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="98">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="98"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 13. Generative AI -->
+                        <div class="skill-card card-reveal" data-category="ai-tech">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #8B5CF6">
+                                    <i data-lucide="sparkles"></i>
+                                </div>
+                                <span class="skill-category">AI Tech</span>
+                            </div>
+                            <h3>Generative AI</h3>
+                            <p class="skill-desc">Orchestrating generative systems, model fine-tuning, and AI workflows.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="96">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="96"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 14. API Integration -->
+                        <div class="skill-card card-reveal" data-category="ai-tech">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #06B6D4">
+                                    <i data-lucide="webhook"></i>
+                                </div>
+                                <span class="skill-category">AI Tech</span>
+                            </div>
+                            <h3>API Integration</h3>
+                            <p class="skill-desc">Connecting secure third-party APIs, REST endpoints, and Webhooks.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="94">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="94"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 15. Git -->
+                        <div class="skill-card card-reveal" data-category="tools">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #F05032">
+                                    <i data-lucide="git-branch"></i>
+                                </div>
+                                <span class="skill-category">Dev Tools</span>
+                            </div>
+                            <h3>Git</h3>
+                            <p class="skill-desc">Managing clean source code history, branching, and version control.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="94">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="94"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 16. GitHub -->
+                        <div class="skill-card card-reveal" data-category="tools">
+                            <div class="skill-header">
+                                <div class="skill-icon-wrap" style="--skill-color: #181717">
+                                    <i data-lucide="github"></i>
+                                </div>
+                                <span class="skill-category">Dev Tools</span>
+                            </div>
+                            <h3>GitHub</h3>
+                            <p class="skill-desc">Hosting repositories, managing pull requests, issues, and workflows.</p>
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-header">
+                                    <span>Proficiency</span>
+                                    <span class="skill-percentage-val" data-target="95">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percent="95"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subtle bottom mask for collapsed state -->
+                    <div class="skills-fade-overlay" id="skillsFadeOverlay"></div>
+                </div>
+
+                <!-- Toggle Actions -->
+                <div class="skills-actions">
+                    <button class="btn-see-all" id="btnSeeAll" aria-label="Toggle all skills visibility">
+                        <span>See All Skills</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="projects-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Showcase of Work</span>
+                    <h2 class="title">My Projects</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: Student Management System -->
+                    <div class="project-card tilt-card card-reveal">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i data-lucide="graduation-cap"></i>
+                            </div>
+                            <div class="project-badge">Academic</div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Student Management System</h3>
+                            <p>A student management platform for organizing student records, grades, and academic information securely and efficiently.</p>
+                            <div class="project-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://mystudentmanagmentsystem.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-project">
+                                <span>Live Demo</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: We Care Hospital Booking System -->
+                    <div class="project-card tilt-card card-reveal">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i data-lucide="activity"></i>
+                            </div>
+                            <div class="project-badge">Healthcare</div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>We Care Hospital Booking System</h3>
+                            <p>A hospital appointment and booking platform facilitating patient registration, doctor schedules, and online booking services.</p>
+                            <div class="project-tags">
+                                <span>Web App</span>
+                                <span>SQL</span>
+                                <span>Responsive</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://we-care-hospital-653533469163.asia-southeast1.run.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-project">
+                                <span>Live Demo</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Flux Invoice Generator -->
+                    <div class="project-card tilt-card card-reveal">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i data-lucide="file-text"></i>
+                            </div>
+                            <div class="project-badge">Utility</div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Flux Invoice Generator</h3>
+                            <p>An invoice generation application designed to create, customize, calculate, and print professional invoices instantly.</p>
+                            <div class="project-tags">
+                                <span>JavaScript</span>
+                                <span>PDF Gen</span>
+                                <span>Tool</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://flux-invoice-app.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-project">
+                                <span>Live Demo</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Weather Live App -->
+                    <div class="project-card tilt-card card-reveal">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i data-lucide="cloud-sun"></i>
+                            </div>
+                            <div class="project-badge">API Integration</div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Weather Live App</h3>
+                            <p>A real-time weather application providing atmospheric metrics, weekly forecasts, and localized search query options.</p>
+                            <div class="project-tags">
+                                <span>API</span>
+                                <span>JSON</span>
+                                <span>Geolocation</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://weatherlive.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-project">
+                                <span>Live Demo</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: To Do App -->
+                    <div class="project-card tilt-card card-reveal">
+                        <div class="project-card-header">
+                            <div class="project-icon">
+                                <i data-lucide="check-square"></i>
+                            </div>
+                            <div class="project-badge">Productivity</div>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>To Do App</h3>
+                            <p>A task management application for organizing daily activities, filtering items, tracking completion, and boosting productivity.</p>
+                            <div class="project-tags">
+                                <span>Local Storage</span>
+                                <span>CSS3</span>
+                                <span>Interactive</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://technovais.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-project">
+                                <span>Live Demo</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Collaboration CTA Section -->
+        <section class="collab-section scroll-trigger">
+            <div class="container collab-container">
+                <div class="collab-card">
+                    <div class="collab-icon-decor">
+                        <i data-lucide="handshake"></i>
+                    </div>
+                    <h3>Interested in working together?</h3>
+                    <p class="collab-text">
+                        Whether you have a project idea, internship opportunity, freelance work, startup collaboration, or simply want to connect, feel free to reach out. I am always open to learning, building, and collaborating on exciting projects.
+                    </p>
+                    <div class="collab-actions">
+                        <a href="https://wa.me/918767373962" class="btn btn-primary collab-btn" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="users"></i>
+                            <span>Let's Collaborate</span>
+                        </a>
+                        <a href="https://wa.me/918767373962" class="btn btn-secondary collab-btn" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="message-circle"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Certificates Section -->
+        <section id="certificates" class="certificates-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Professional Credentials</span>
+                    <h2 class="title">Certificates</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="certificate-grid">
+                    <article class="certificate-card card-reveal">
+                        <div class="certificate-card-media">
+                            <img
+                                src="certificate.png"
+                                alt="Data Analyst Certificate"
+                                class="certificate-image"
+                            />
+                        </div>
+
+                        <div class="certificate-card-info">
+                            <div class="certificate-card-header">
+                                <div class="certificate-badge certificate-badge-highlight">
+                                    Data Analyst Certificate
+                                </div>
+                            </div>
+                            <h3>Data Analyst Certificate</h3>
+                            <p>
+                                Successfully completed a Data Analyst certification program, gaining practical knowledge in data analysis, data visualization, Excel, SQL, Power BI, and Python. Developed skills in collecting, cleaning, analyzing, and interpreting data to generate meaningful insights and support data-driven decision-making.
+                            </p>
+
+                            <a href="Ultimate_Job-Ready_AI-Powered_Data_Analytics_Course__Certificate (1).pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary certificate-action-btn">
+                                <span>View Certificate</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section -->
+        <section id="contact" class="contact-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Say Hello</span>
+                    <h2 class="title">Contact Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left: Contact Information -->
+                    <div class="contact-info">
+                        <h3>Connect With Me</h3>
+                        <p class="contact-info-subtitle">Have a question or want to chat? Reach out through any of these platforms or use the form.</p>
+                        
+                        <div class="contact-details-list">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="detail-text">
+                                    <span>Email Me</span>
+                                    <a href="mailto:umredkarkunal1@gmail.com">umredkarkunal1@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div class="detail-text">
+                                    <span>Call Me</span>
+                                    <a href="tel:+918767373962">+91 8767373962</a>
+                                </div>
+                            </div>
+
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="detail-text">
+                                    <span>Location</span>
+                                    <p>India</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Area inside Contact -->
+                        <div class="social-links-area">
+                            <h4>Follow Me</h4>
+                            <div class="social-capsules">
+                                <a href="https://github.com/umredkarkunal-star" target="_blank" rel="noopener noreferrer" class="social-capsule github" data-tooltip="GitHub Profile">
+                                    <i data-lucide="github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/kunal-umredkar-904a163a3" target="_blank" rel="noopener noreferrer" class="social-capsule linkedin" data-tooltip="LinkedIn Profile">
+                                    <i data-lucide="linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://instagram.com/kunal_umredkar18" target="_blank" rel="noopener noreferrer" class="social-capsule instagram" data-tooltip="Instagram Profile">
+                                    <i data-lucide="instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="mailto:umredkarkunal1@gmail.com" class="social-capsule email" data-tooltip="Send Email">
+                                    <i data-lucide="mail"></i>
+                                    <span>Email</span>
+                                </a>
+                                <a href="https://wa.me/918767373962" target="_blank" rel="noopener noreferrer" class="social-capsule whatsapp" data-tooltip="Chat on WhatsApp">
+                                    <svg class="svg-social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18.364 5.636A8.966 8.966 0 0012 3c-4.968 0-9 4.032-9 9 0 1.724.484 3.398 1.4 4.842L3 21l4.298-1.346A8.956 8.956 0 0012 21c4.968 0 9-4.032 9-9 0-2.404-.936-4.664-2.636-6.364zM12 19.2c-1.572 0-3.116-.42-4.47-1.214l-.32-.19-2.525.79.803-2.463-.208-.33A7.16 7.16 0 014.2 12c0-3.97 3.23-7.2 7.2-7.2 1.922 0 3.73.748 5.091 2.109C17.852 8.27 18.6 10.078 18.6 12c0 3.97-3.23 7.2-7.2 7.2zm3.957-5.407c-.217-.11-.275-.138-.415-.36-.083-.131-.19-.34-.33-.522-.167-.215-.226-.29-.395-.456-.17-.165-.3-.263-.448-.373-.243-.18-.466-.27-.723-.105-.145.093-.277.215-.417.337l-.28.243c-.167.14-.265.17-.414.061-.264-.194-.576-.412-.876-.642-.456-.35-.856-.745-1.127-1.112-.134-.183-.092-.284.053-.448l.261-.295c.08-.09.13-.173.184-.258.077-.123.109-.234.048-.363-.03-.06-.153-.38-.285-.718-.135-.347-.282-.71-.383-.872-.116-.188-.246-.226-.41-.226H9.15c-.193 0-.394.07-.56.242a2.38 2.38 0 00-.74 1.758c0 1.25.545 2.457 1.34 3.51 1.206 1.6 2.76 2.66 4.35 3.236.474.172.95.27 1.408.27.72 0 1.378-.328 1.684-.633.32-.32.686-.888.776-1.346.06-.31.025-.572-.02-.663-.045-.09-.165-.145-.39-.257z"/>
+                                    </svg>
+                                    <span>WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" class="contact-form">
+                            <h3>Send a Message</h3>
+                            <p class="form-instruction">Fill out the form below. Clicking send will open WhatsApp automatically with your message details.</p>
+                            
+                            <div class="form-group">
+                                <label for="userName">Name</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="user" class="input-icon"></i>
+                                    <input type="text" id="userName" name="name" placeholder="John Doe" required>
+                                </div>
+                                <span class="error-msg" id="nameError">Please enter your name</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">Email</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="mail" class="input-icon"></i>
+                                    <input type="email" id="userEmail" name="email" placeholder="john@example.com" required>
+                                </div>
+                                <span class="error-msg" id="emailError">Please enter a valid email address</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userMessage">Message</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="message-square" class="input-icon textarea-icon"></i>
+                                    <textarea id="userMessage" name="message" rows="5" placeholder="Tell me about your project, query, or collaboration ideas..." required></textarea>
+                                </div>
+                                <span class="error-msg" id="messageError">Please enter a message</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span>Send Message</span>
+                                <i data-lucide="send"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#home" class="logo footer-logo">
+                        <span class="logo-accent">&lt;</span>KU<span class="logo-accent">/&gt;</span>
+                    </a>
+                    <p class="footer-tagline">Web Developer | Cybersecurity Enthusiast</p>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social-col">
+                    <h4 class="footer-heading">Stay Connected</h4>
+                    <div class="footer-social-capsules">
+                        <a href="https://github.com/umredkarkunal-star" target="_blank" rel="noopener noreferrer" class="footer-social-pill github">GitHub</a>
+                        <a href="https://linkedin.com/in/kunal-umredkar-904a163a3" target="_blank" rel="noopener noreferrer" class="footer-social-pill linkedin">LinkedIn</a>
+                        <a href="https://instagram.com/kunal_umredkar18" target="_blank" rel="noopener noreferrer" class="footer-social-pill instagram">Instagram</a>
+                        <a href="mailto:umredkarkunal1@gmail.com" class="footer-social-pill email">
+                            <i data-lucide="mail"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://wa.me/918767373962" target="_blank" rel="noopener noreferrer" class="footer-social-pill whatsapp">
+                            <svg class="svg-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.364 5.636A8.966 8.966 0 0012 3c-4.968 0-9 4.032-9 9 0 1.724.484 3.398 1.4 4.842L3 21l4.298-1.346A8.956 8.956 0 0012 21c4.968 0 9-4.032 9-9 0-2.404-.936-4.664-2.636-6.364zM12 19.2c-1.572 0-3.116-.42-4.47-1.214l-.32-.19-2.525.79.803-2.463-.208-.33A7.16 7.16 0 014.2 12c0-3.97 3.23-7.2 7.2-7.2 1.922 0 3.73.748 5.091 2.109C17.852 8.27 18.6 10.078 18.6 12c0 3.97-3.23 7.2-7.2 7.2zm3.957-5.407c-.217-.11-.275-.138-.415-.36-.083-.131-.19-.34-.33-.522-.167-.215-.226-.29-.395-.456-.17-.165-.3-.263-.448-.373-.243-.18-.466-.27-.723-.105-.145.093-.277.215-.417.337l-.28.243c-.167.14-.265.17-.414.061-.264-.194-.576-.412-.876-.642-.456-.35-.856-.745-1.127-1.112-.134-.183-.092-.284.053-.448l.261-.295c.08-.09.13-.173.184-.258.077-.123.109-.234.048-.363-.03-.06-.153-.38-.285-.718-.135-.347-.282-.71-.383-.872-.116-.188-.246-.226-.41-.226H9.15c-.193 0-.394.07-.56.242a2.38 2.38 0 00-.74 1.758c0 1.25.545 2.457 1.34 3.51 1.206 1.6 2.76 2.66 4.35 3.236.474.172.95.27 1.408.27.72 0 1.378-.328 1.684-.633.32-.32.686-.888.776-1.346.06-.31.025-.572-.02-.663-.045-.09-.165-.145-.39-.257z"/>
+                            </svg>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Kunal Umredkar. All rights reserved.</p>
+                <button class="back-to-top-thin" id="backToTopBtn" aria-label="Back to Top">
+                    <i data-lucide="arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Portfolio JS Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
