@@ -254,13 +254,13 @@ section {
     align-items: center;
     z-index: 99;
     transition: var(--transition-smooth);
-    background-color: transparent;
+    background-color: var(--color-primary);
     box-shadow: 0 2px 12px rgba(26, 31, 44, 0.08);
 }
 
 .header.scrolled {
     height: 70px;
-    background-color: rgba(251, 251, 251, 0.85);
+    background-color: var(--color-primary);
     backdrop-filter: blur(12px);
     box-shadow: var(--glass-shadow);
     border-bottom: 1px solid var(--glass-border);
@@ -277,13 +277,14 @@ section {
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
     display: flex;
     align-items: center;
-    gap: 4px;
+}
+
+.logo-image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
 }
 
 .logo-accent {
@@ -1912,8 +1913,12 @@ section {
 }
 
 .footer-logo {
-    font-size: 1.25rem;
-    font-weight: 800;
+    width: fit-content;
+}
+
+.footer-logo .logo-image {
+    width: 56px;
+    height: 56px;
 }
 
 .footer-tagline {
