@@ -522,7 +522,7 @@ section {
     display: block;
     z-index: 2;
     pointer-events: none;
-    opacity: 0;
+    opacity: 0.8;
 }
 
 
@@ -2222,7 +2222,7 @@ section {
         height: 0 !important;
         opacity: 0 !important;
     }
-    
+
     .hero-name {
         font-size: 3.25rem;
     }

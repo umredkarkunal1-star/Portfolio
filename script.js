@@ -34,7 +34,7 @@ const initSplineScene = async () => {
             return;
         }
 
-        const { Application } = await import('https://esm.sh/@splinetool/runtime');
+        const { Application } = await import('https://unpkg.com/@splinetool/runtime@2.0.5/build/runtime.js');
 
         const updateCanvasDimensions = () => {
             splineCanvas.width = window.innerWidth;
@@ -44,7 +44,7 @@ const initSplineScene = async () => {
         updateCanvasDimensions();
         window.addEventListener('resize', updateCanvasDimensions);
 
-        const spline = new Application(splineCanvas);
+        const spline = new Application(splineCanvas, { renderer: 'webgl' });
         const sceneUrl = 'https://prod.spline.design/DpgtbC7Q76a3FppV/scene.splinecode';
 
         console.log('Loading Spline scene...');
@@ -62,30 +62,32 @@ const initSplineScene = async () => {
     }
 };
 
-const handleScreenSizeChange = (event) => {
-    if (event.matches) {
-        initSplineScene();
-    } else {
-        hideSplineCanvas();
-    }
-};
-
 const setupSplineLoading = () => {
     splineCanvas = document.getElementById('splineCanvas3D');
-
     if (!isDesktopOrLaptop()) {
         hideSplineCanvas();
         return;
     }
-
     setTimeout(initSplineScene, 500);
 };
 
 const splineMediaQuery = window.matchMedia(`(min-width: ${MIN_SCREEN_WIDTH_FOR_SPLINE}px)`);
 if (splineMediaQuery.addEventListener) {
-    splineMediaQuery.addEventListener('change', handleScreenSizeChange);
+    splineMediaQuery.addEventListener('change', event => {
+        if (event.matches) {
+            initSplineScene();
+        } else {
+            hideSplineCanvas();
+        }
+    });
 } else if (splineMediaQuery.addListener) {
-    splineMediaQuery.addListener(handleScreenSizeChange);
+    splineMediaQuery.addListener(event => {
+        if (event.matches) {
+            initSplineScene();
+        } else {
+            hideSplineCanvas();
+        }
+    });
 }
 
 if (document.readyState === 'loading') {
