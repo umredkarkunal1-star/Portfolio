@@ -1,0 +1,127 @@
+.sp {
+    --active: 0;
+    --cut: 0.35em;
+    --spark: 2s;
+    --transition: 0.3s;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1200;
+    pointer-events: auto;
+}
+
+.open {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sparkleButton {
+    --bg: radial-gradient(40% 50% at center 100%, hsl(270 calc(var(--active) * 97%) 72% / var(--active)), transparent), radial-gradient(80% 100% at center 120%, hsl(260 calc(var(--active) * 97%) 70% / var(--active)), transparent), hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    padding: 0.7em 1em;
+    border: 0;
+    border-radius: 100px;
+    background: var(--bg);
+    box-shadow: 0 0 calc(var(--active) * 3em) calc(var(--active) * 1em) hsl(260 97% 61% / 0.75), 0 0 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset, 0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 60%))) inset;
+    color: white;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 2;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    scale: calc(1 + (var(--active) * 0.1));
+    transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
+}
+
+.isVisible { animation: triggerIn 0.3s ease both; }
+.isClosing { animation: triggerOut 0.3s ease both; pointer-events: none; }
+.sparkleButton:active { scale: 1; }
+.sparkleButton:is(:hover, :focus-visible) {
+    --active: 1;
+    --play-state: running;
+    box-shadow: 0 0 1.4em 0.25em hsl(260 97% 61% / 0.45), 0 0 0 0 hsl(260 97% 80% / 0.35) inset, 0 -0.05em 0 0 hsl(260 97% 70%) inset;
+}
+.sparkleButton:focus-visible { outline: 2px solid #c5baff; outline-offset: 4px; }
+
+.sparkleButton::before {
+    position: absolute;
+    inset: -0.2em;
+    z-index: -1;
+    border: 0.25em solid hsl(260 97% 50% / 0.5);
+    border-radius: 100px;
+    content: '';
+    opacity: var(--active);
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+.spark { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: 100px; mask: linear-gradient(white, transparent 50%); pointer-events: none; animation: flip calc(var(--spark) * 2) infinite steps(2, end); }
+.spark::before { position: absolute; top: 0; left: 50%; z-index: -1; width: 200%; aspect-ratio: 1; background: conic-gradient(from 0deg, transparent 0 340deg, white 360deg); content: ''; opacity: calc(var(--active) + 0.4); translate: -50% -15%; rotate: 0; transform: rotate(-90deg); animation: rotate var(--spark) linear infinite both; }
+.spark::after { position: absolute; inset: var(--cut); border-radius: 100px; content: ''; }
+.backdrop { position: absolute; inset: var(--cut); z-index: 0; border-radius: 100px; background: var(--bg); pointer-events: none; transition: background var(--transition); }
+.sparkle { position: relative; z-index: 1; inline-size: 1.25em; translate: -25% -5%; }
+.sparkle path { color: #fff; transform-box: fill-box; transform-origin: center; fill: currentColor; stroke: currentColor; animation-delay: calc(var(--transition) * 1.5 + var(--delay) * 1s); animation-duration: 0.6s; transition: color var(--transition); }
+.sparkleButton:is(:hover, :focus-visible) path { animation-name: bounce; }
+.sparkle path:nth-of-type(1) { --scale: 0.5; --delay: 0.1; }
+.sparkle path:nth-of-type(2) { --scale: 1.5; --delay: 0.2; }
+.sparkle path:nth-of-type(3) { --scale: 2.5; --delay: 0.35; }
+.text { position: relative; z-index: 1; translate: 2% -6%; letter-spacing: 0.01ch; background: linear-gradient(90deg, #fff, #d8ccff); -webkit-background-clip: text; color: transparent; }
+.mobileText { display: none; }
+.particlePen { position: absolute; top: 50%; left: 50%; z-index: -1; width: 200%; aspect-ratio: 1; opacity: var(--active); pointer-events: none; translate: -50% -50%; -webkit-mask: radial-gradient(white, transparent 65%); transition: opacity var(--transition); }
+.particle { position: absolute; top: calc(var(--y, 50) * 1%); left: calc(var(--x, 50) * 1%); z-index: -1; width: calc(var(--size, 0.25) * 1rem); aspect-ratio: 1; fill: white; opacity: var(--alpha, 1); animation: floatOut calc(var(--duration, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear; animation-play-state: var(--play-state, paused); }
+.particle:nth-child(odd) { --x: 20; --y: 25; --delay: 0.2; }
+.particle:nth-child(even) { --x: 80; --y: 70; animation-direction: reverse; }
+.particle path { fill: hsl(0 0% 90%); stroke: none; }
+.bodydrop { display: none; }
+
+@keyframes bounce { 35%, 65% { scale: var(--scale); } }
+@keyframes flip { to { rotate: 360deg; } }
+@keyframes rotate { to { transform: rotate(90deg); } }
+@keyframes floatOut { to { rotate: 360deg; } }
+@keyframes triggerIn { from { opacity: 0; scale: 0.72; } to { opacity: 1; scale: 1; } }
+@keyframes triggerOut { from { opacity: 1; scale: 1; } to { opacity: 0; scale: 0.72; } }
+
+@media (max-width: 600px) {
+    .sp {
+        right: 12px;
+        bottom: 12px;
+        max-width: calc(100% - 24px);
+    }
+    .sparkleButton {
+        font-size: 0.9rem;
+        max-width: calc(100% - 24px);
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 768px) {
+    .sp { right: 12px; bottom: 12px; }
+    .sparkleButton {
+        gap: 8px;
+        padding: 8px 14px;
+        background: #23212b;
+        box-shadow: none;
+        color: #ffffff;
+        font-size: 12px;
+        width: 92px;
+        max-width: 92px;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    .sparkleButton:hover,
+    .sparkleButton:focus-visible { background: #23212b; box-shadow: none; }
+    .sparkleButton::before, .spark, .particlePen { display: none; }
+    .sparkle { inline-size: 1em; }
+    .backdrop { background: #23212b; }
+    .sparkle path { fill: #cfc7e8; stroke: #cfc7e8; }
+    .text { background: none; color: #ffffff; }
+    .desktopText { display: none; }
+    .mobileText { display: inline; }
+}

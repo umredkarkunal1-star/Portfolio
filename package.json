@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "kunal-portfolio",
   "private": true,
@@ -16,3 +17,23 @@
   },
   "devDependencies": {}
 }
+=======
+{
+  "name": "kunal-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {}
+}
+>>>>>>> 66b9237 (Add portfolio application files)

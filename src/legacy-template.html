@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal's — Portfolio</title>
+    <meta name="description" content="Portfolio of Kunal Umredkar, BCA 2nd Year student, Web Developer, and Cybersecurity Enthusiast. Explore my projects, skills, and get in touch for collaborations.">
+    <meta name="keywords" content="Kunal Umredkar, Web Developer, Cybersecurity, Portfolio, BCA Student, Data Analyst, India">
+    <meta name="author" content="Kunal Umredkar">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kunal Umredkar | Portfolio">
+    <meta property="og:description" content="Personal portfolio of Kunal Umredkar - BCA Student, Web Developer, and Cybersecurity Enthusiast.">
+    <meta property="og:url" content="https://kunalumredkar.dev/"> <!-- Placeholder URL -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Scoutie+Sans:ital,wght@0,200..800;1,200..800&family=Slabo+13px&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/png" href="favicon.png" sizes="64x64">
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Mouse Custom Glow Effect (Desktop Only) -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Background Decoration Blobs -->
+    <div class="blob-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Header / Navigation Bar -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="KU" class="logo-image">
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <a href="#contact" class="btn btn-sm btn-nav">Let's Talk</a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <main>
+        <!-- 1. Home / Hero Section -->
+        <section id="home" class="hero-section section-reveal">
+            <!-- Spline 3D Background Canvas -->
+            <!-- Only render and load on larger screens (desktop/laptop 1024px+). -->
+            <canvas id="splineCanvas3D" class="spline-canvas" aria-hidden="true"></canvas>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-greeting animate-fade-in" style="--delay: 1">Hello, I'm</span>
+                    <h1 class="hero-name animate-fade-in" aria-label="Kunal Umredkar" style="--delay: 2"><span>Kunal Umredkar</span></h1>
+                    <div class="hero-roles animate-fade-in" style="--delay: 3">
+                        <span class="role-prefix">A</span>
+                        <span id="role-text" class="role-text"></span><span class="typing-cursor">|</span>
+                    </div>
+                    <p class="hero-intro animate-fade-in" style="--delay: 4">
+                        Passionate about Web Development, Cybersecurity, AI, Data Science, and building innovative digital solutions.
+                    </p>
+                    <div class="hero-actions animate-fade-in" style="--delay: 5">
+                        <a href="#projects" class="btn btn-primary Btn">
+                            <span class="action-copy"><strong>View Projects</strong><small>Explore my work</small></span>
+                            <span class="action-icon"><i data-lucide="arrow-up-right"></i></span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary Btn">
+                            <span class="action-copy"><strong>Contact Me</strong><small>Get in touch</small></span>
+                            <span class="action-icon"><i data-lucide="mail"></i></span>
+                        </a>
+                        <a href="https://wa.me/918767373962" target="_blank" rel="noopener noreferrer" class="btn btn-collaborate Btn">
+                            <span class="action-copy"><strong>Let's Collaborate</strong><small>Work together</small></span>
+                            <span class="action-icon"><i data-lucide="users"></i></span>
+                        </a>
+                        
+                    </div>
+
+                    <div class="hero-socials animate-fade-in" style="--delay: 6">
+                        <span class="socials-title">Follow / Connect</span>
+                        <ul class="wrapper">
+                            <li class="icon github">
+                                <a href="https://github.com/umredkarkunal-star" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                                    <span class="tooltip">GitHub</span>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"></path></svg>
+                                </a>
+                            </li>
+                            <li class="icon linkedin">
+                                <a href="https://linkedin.com/in/kunal-umredkar-904a163a3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                                    <span class="tooltip">LinkedIn</span>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5ZM7.25 19h-2.5v-8h2.5v8ZM6 9.91c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5ZM19.5 19H17v-4.19c0-1-.02-2.28-1.39-2.28-1.39 0-1.61 1.09-1.61 2.21V19h-2.5v-8h2.4v1.09h.03c.33-.63 1.15-1.3 2.37-1.3 2.53 0 3 1.67 3 3.83V19Z"></path></svg>
+                                </a>
+                            </li>
+                            <li class="icon instagram">
+                                <a href="https://instagram.com/kunal_umredkar18" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+                                    <span class="tooltip">Instagram</span>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm-.2 2A3.55 3.55 0 0 0 4 7.55v8.9A3.55 3.55 0 0 0 7.55 20h8.9A3.55 3.55 0 0 0 20 16.45v-8.9A3.55 3.55 0 0 0 16.45 4h-8.9ZM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"></path></svg>
+                                </a>
+                            </li>
+                            <li class="icon email">
+                                <a href="mailto:umredkarkunal1@gmail.com" aria-label="Send Email">
+                                    <span class="tooltip">Email</span>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.5 5h19A2.5 2.5 0 0 1 24 7.5v9A2.5 2.5 0 0 1 21.5 19h-19A2.5 2.5 0 0 1 0 16.5v-9A2.5 2.5 0 0 1 2.5 5Zm0 2a.5.5 0 0 0-.3.1L12 14.2l9.8-7.1a.5.5 0 0 0-.3-.1h-19Zm19.5 2.55-8.83 6.4a2 2 0 0 1-2.34 0L2 9.55v6.95c0 .28.22.5.5.5h19a.5.5 0 0 0 .5-.5V9.55Z"></path></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="about-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Get To Know Me</span>
+                    <h2 class="title">About Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Left: About Content & Info Cards -->
+                    <div class="about-content">
+                        <p class="about-text">
+                            I am <strong>Kunal Umredkar</strong>, a BCA 2nd-year student passionate about technology, web development, cybersecurity, AI, data science, and innovation.
+                        </p>
+                        <p class="about-text">
+                            I enjoy building real-world applications, learning new technologies, and continuously improving my skills. My goal is to become a <strong>Cybersecurity Expert</strong> and <strong>Data Analyst</strong> while creating impactful digital solutions that solve real-world problems.
+                        </p>
+
+                        <!-- Information Cards Grid -->
+                        <div class="info-cards-grid">
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="graduation-cap"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Education</h4>
+                                    <p>BCA 2nd Year</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Location</h4>
+                                    <p>India</p>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:umredkarkunal1@gmail.com">umredkarkunal1@gmail.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i data-lucide="briefcase"></i>
+                                </div>
+                                <div class="info-card-details">
+                                    <h4>EXPERIENCE</h4>
+                                    <p>Projects &amp; Internships</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right: Large Professional Image -->
+                    <div class="about-image-wrapper">
+                        <div class="profile-image-frame">
+                            <div class="image-placeholder-inner">
+                                <img src="new.image.jpeg" alt="Portrait of Kunal Umredkar" class="profile-image">
+                            </div>
+                            <!-- Frame Borders Decoration -->
+                            <div class="frame-border corner-tl"></div>
+                            <div class="frame-border corner-tr"></div>
+                            <div class="frame-border corner-bl"></div>
+                            <div class="frame-border corner-br"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills Section -->
+        <section id="skills" class="skills-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">My capabilities</span>
+                    <h2 class="title">Skills</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="skills-grid-container" aria-label="Skills overview">
+                    <div class="skills-grid" id="skillsGrid">
+                        <div class="skill-group-grid">
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #4a5bff;"><i data-lucide="layout-template"></i></div><h3>HTML</h3></div></div><div class="skill-body"><p class="skill-desc">Semantic structure and accessible page layouts.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="92">92%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="92"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #e94d8b;"><i data-lucide="palette"></i></div><h3>CSS</h3></div></div><div class="skill-body"><p class="skill-desc">Modern styling, animation, and responsive design.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="90">90%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="90"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #f7b731;"><i data-lucide="code-2"></i></div><h3>JavaScript</h3></div></div><div class="skill-body"><p class="skill-desc">Interactive behavior and client-side application logic.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="88">88%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="88"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #1e9bf0;"><i data-lucide="component"></i></div><h3>React</h3></div></div><div class="skill-body"><p class="skill-desc">Reusable components and state-driven user interfaces.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="85">85%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="85"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #06b6d4;"><i data-lucide="brain-circuit"></i></div><h3>Python</h3></div></div><div class="skill-body"><p class="skill-desc">Scripting, automation, and practical data workflows.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #2563eb;"><i data-lucide="braces"></i></div><h3>C++</h3></div></div><div class="skill-body"><p class="skill-desc">Object-oriented programming and core development.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="76">76%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="76"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #22c55e;"><i data-lucide="database"></i></div><h3>SQL</h3></div></div><div class="skill-body"><p class="skill-desc">Queries, joins, and structured data management.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #0891b2;"><i data-lucide="table-2"></i></div><h3>RDBMS</h3></div></div><div class="skill-body"><p class="skill-desc">Relational schemas, tables, and database design.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="80">80%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="80"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #8b5cf6;"><i data-lucide="chart-column-big"></i></div><h3>Data Analysis</h3></div></div><div class="skill-body"><p class="skill-desc">Finding patterns and actionable insights in data.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="86">86%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="86"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #7c3aed;"><i data-lucide="bar-chart-3"></i></div><h3>Data Visualization</h3></div></div><div class="skill-body"><p class="skill-desc">Clear visual stories from complex datasets.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #14b8a6;"><i data-lucide="workflow"></i></div><h3>Data Processing</h3></div></div><div class="skill-body"><p class="skill-desc">Organizing and transforming data for analysis.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #0d9488;"><i data-lucide="shuffle"></i></div><h3>Data Manipulation</h3></div></div><div class="skill-body"><p class="skill-desc">Reshaping, filtering, and preparing useful datasets.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #10b981;"><i data-lucide="sparkles"></i></div><h3>Data Cleaning</h3></div></div><div class="skill-body"><p class="skill-desc">Improving data quality, consistency, and accuracy.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #f59e0b;"><i data-lucide="wand-sparkles"></i></div><h3>Data Preparation</h3></div></div><div class="skill-body"><p class="skill-desc">Structuring raw information for reliable use.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #ef4444;"><i data-lucide="sigma"></i></div><h3>Statistics</h3></div></div><div class="skill-body"><p class="skill-desc">Descriptive methods and evidence-based reasoning.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="78">78%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="78"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #2563eb;"><i data-lucide="binary"></i></div><h3>NumPy</h3></div></div><div class="skill-body"><p class="skill-desc">Numerical computing with Python arrays.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="78">78%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="78"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #16a34a;"><i data-lucide="table-properties"></i></div><h3>Pandas</h3></div></div><div class="skill-body"><p class="skill-desc">Practical tabular analysis and data wrangling.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="80">80%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="80"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #8b5cf6;"><i data-lucide="chart-no-axes-combined"></i></div><h3>Power BI</h3></div></div><div class="skill-body"><p class="skill-desc">Interactive dashboards and business reporting.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="80">80%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="80"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #06b6d4;"><i data-lucide="layout-dashboard"></i></div><h3>Dashboard Building</h3></div></div><div class="skill-body"><p class="skill-desc">Focused dashboards for fast decision-making.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #f97316;"><i data-lucide="monitor"></i></div><h3>Front-End Development</h3></div></div><div class="skill-body"><p class="skill-desc">Building polished interfaces for the web.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="88">88%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="88"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #0ea5e9;"><i data-lucide="globe-2"></i></div><h3>Web Development</h3></div></div><div class="skill-body"><p class="skill-desc">Creating useful, responsive web experiences.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="88">88%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="88"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #eab308;"><i data-lucide="smartphone"></i></div><h3>Responsive Web Design</h3></div></div><div class="skill-body"><p class="skill-desc">Layouts that adapt smoothly across devices.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="90">90%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="90"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #f97316;"><i data-lucide="github"></i></div><h3>GitHub</h3></div></div><div class="skill-body"><p class="skill-desc">Version control and collaborative development.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #111827;"><i data-lucide="mouse-pointer-2"></i></div><h3>Cursor AI</h3></div></div><div class="skill-body"><p class="skill-desc">AI-enhanced coding and development workflows.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #3ecf8e;"><i data-lucide="cloud"></i></div><h3>Supabase</h3></div></div><div class="skill-body"><p class="skill-desc">Backend services, auth, and hosted databases.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="78">78%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="78"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #14b8a6;"><i data-lucide="plug-zap"></i></div><h3>API Integration</h3></div></div><div class="skill-body"><p class="skill-desc">Connecting applications to useful services.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #7c3aed;"><i data-lucide="bot"></i></div><h3>Generative AI</h3></div></div><div class="skill-body"><p class="skill-desc">Using generative models to explore ideas.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #6366f1;"><i data-lucide="wand-2"></i></div><h3>AI-Assisted Development</h3></div></div><div class="skill-body"><p class="skill-desc">Pairing development practice with AI tools.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="86">86%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="86"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #ec4899;"><i data-lucide="message-square-text"></i></div><h3>Prompt Engineering</h3></div></div><div class="skill-body"><p class="skill-desc">Writing precise prompts for useful outputs.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #ef4444;"><i data-lucide="shield-check"></i></div><h3>Cybersecurity</h3></div></div><div class="skill-body"><p class="skill-desc">Security-aware development and threat basics.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="78">78%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="78"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #dc2626;"><i data-lucide="network"></i></div><h3>Network Security</h3></div></div><div class="skill-body"><p class="skill-desc">Protecting systems, traffic, and network access.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="76">76%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="76"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #f59e0b;"><i data-lucide="lightbulb"></i></div><h3>Problem Solving</h3></div></div><div class="skill-body"><p class="skill-desc">Breaking complex challenges into clear steps.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="89">89%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="89"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #0ea5e9;"><i data-lucide="search"></i></div><h3>Research Skills</h3></div></div><div class="skill-body"><p class="skill-desc">Finding, evaluating, and applying information.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #6366f1;"><i data-lucide="clipboard-list"></i></div><h3>Project Management</h3></div></div><div class="skill-body"><p class="skill-desc">Planning work, priorities, and delivery.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="80">80%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="80"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #22c55e;"><i data-lucide="users"></i></div><h3>Team Collaboration</h3></div></div><div class="skill-body"><p class="skill-desc">Working clearly and effectively with teams.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="86">86%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="86"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #8b5cf6;"><i data-lucide="presentation"></i></div><h3>Presentation Skills</h3></div></div><div class="skill-body"><p class="skill-desc">Sharing ideas with clarity and confidence.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="82">82%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="82"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #f97316;"><i data-lucide="clock-3"></i></div><h3>Time Management</h3></div></div><div class="skill-body"><p class="skill-desc">Balancing focus, deadlines, and priorities.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="84">84%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="84"></span></div></div></article>
+                            <article class="skill-card"><div class="skill-header"><div class="skill-main"><div class="skill-icon-wrap" style="--skill-color: #2563eb;"><i data-lucide="languages"></i></div><h3>English</h3></div></div><div class="skill-body"><p class="skill-desc">Clear written and spoken communication.</p></div><div class="skill-progress-container"><div class="skill-progress-header"><span>Proficiency</span><span class="skill-percentage-val" data-target="88">88%</span></div><div class="progress-bar"><span class="progress-fill" data-percent="88"></span></div></div></article>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-actions">
+                    <button type="button" class="btn-see-all" id="btnSeeAll">
+                        <span>See More</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="projects-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Featured Work</span>
+                    <h2 class="title">Projects</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <div class="project-icon"><i data-lucide="folder-git-2"></i></div>
+                            <span class="project-badge">Portfolio</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Personal Portfolio</h3>
+                            <p>
+                                A modern portfolio website designed to showcase my skills, projects, and achievements with a professional and engaging layout.
+                            </p>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>Vite</span>
+                                <span>CSS</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://portfolio-beta-three-71.vercel.app/" class="btn btn-primary btn-project" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <div class="project-icon"><i data-lucide="briefcase-business"></i></div>
+                            <span class="project-badge">Data Analytics</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Employee Data Cleaning</h3>
+                            <p>
+                                Cleaned and preprocessed a 5,000-record employee dataset with Python, Pandas, and NumPy, transforming messy raw data into a structured format ready for analysis.
+                            </p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/umredkarkunal1-star/Data_Cleaning_with_Pandas_And_Numpy" class="btn btn-primary btn-project" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <div class="project-icon"><i data-lucide="image"></i></div>
+                            <span class="project-badge">Computer Vision</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>OpenCV Image Editor</h3>
+                            <p>
+                                A simple, menu-driven Python application for editing images with a collection of basic image-processing operations through an easy-to-use command-line menu.
+                            </p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>OpenCV</span>
+                                <span>Image Processing</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/umredkarkunal1-star/OpenCV1" class="btn btn-primary btn-project" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <div class="project-icon"><i data-lucide="cloud-sun"></i></div>
+                            <span class="project-badge">Web App</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Weather Live</h3>
+                            <p>
+                                A weather application for checking current conditions and forecasts.
+                            </p>
+                            <div class="project-tags">
+                                <span>Weather</span>
+                                <span>Web App</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://weatherlive.lovable.app/" class="btn btn-primary btn-project" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card tilt-card">
+                        <div class="project-card-header">
+                            <div class="project-icon"><i data-lucide="receipt"></i></div>
+                            <span class="project-badge">Productivity</span>
+                        </div>
+                        <div class="project-card-body">
+                            <h3>Flux Invoice Generator</h3>
+                            <p>
+                                An online invoice generator for creating and managing professional invoices.
+                            </p>
+                            <div class="project-tags">
+                                <span>Invoice</span>
+                                <span>Web App</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://flux-invoice-app.lovable.app/" class="btn btn-primary btn-project" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Certificates Section -->
+        <section id="certificates" class="certificates-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Professional Credentials</span>
+                    <h2 class="title">Certificates</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="certificate-grid">
+                    <article class="certificate-card card-reveal">
+                        <div class="certificate-card-media">
+                            <img
+                                src="certificate.png"
+                                alt="Data Analyst Certificate"
+                                class="certificate-image"
+                            />
+                        </div>
+
+                        <div class="certificate-card-info">
+                            <div class="certificate-card-header">
+                                <div class="certificate-badge certificate-badge-highlight">
+                                    Data Analyst Certificate
+                                </div>
+                            </div>
+                            <h3>Data Analyst Certificate</h3>
+                            <p>
+                                Successfully completed a Data Analyst certification program, gaining practical knowledge in data analysis, data visualization, Excel, SQL, Power BI, and Python. Developed skills in collecting, cleaning, analyzing, and interpreting data to generate meaningful insights and support data-driven decision-making.
+                            </p>
+
+                            <a href="Ultimate_Job-Ready_AI-Powered_Data_Analytics_Course__Certificate (1).pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary certificate-action-btn comic-button">
+                                <span>View Certificate</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card certificate-card-reversed card-reveal">
+                        <div class="certificate-card-media">
+                            <img
+                                src="/data-science.png"
+                                alt="The Ultimate Job Ready Data Science Course certificate awarded to Kunal Umredkar"
+                                class="certificate-image"
+                            />
+                        </div>
+
+                        <div class="certificate-card-info">
+                            <div class="certificate-card-header">
+                                <div class="certificate-badge certificate-badge-highlight">
+                                    Data Science Certificate
+                                </div>
+                            </div>
+                            <h3>The Ultimate Job Ready Data Science Course</h3>
+                            <p>
+                                Successfully completed The Ultimate Job Ready Data Science Course, an online course authorized by CodeWithHarry and offered through codewithharry.com.
+                            </p>
+
+                            <a href="/data-science-course-certificate.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary certificate-action-btn comic-button">
+                                <span>View Certificate</span>
+                                <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Collaboration CTA Section -->
+        <section class="collab-section scroll-trigger">
+            <div class="container collab-container">
+                <div class="collab-card">
+                    <div class="collab-icon-decor">
+                        <i data-lucide="handshake"></i>
+                    </div>
+                    <h3>Interested in working together?</h3>
+                    <p class="collab-text">
+                        Whether you have a project idea, internship opportunity, freelance work, startup collaboration, or simply want to connect, feel free to reach out. I am always open to learning, building, and collaborating on exciting projects.
+                    </p>
+                    <div class="collab-actions">
+                        <a href="https://wa.me/918767373962" class="btn btn-primary collab-btn" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="users"></i>
+                            <span>Let's Collaborate</span>
+                        </a>
+                        <a href="https://wa.me/918767373962" class="btn btn-secondary collab-btn" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="message-circle"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section -->
+        <section id="contact" class="contact-section scroll-trigger">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Say Hello</span>
+                    <h2 class="title">Contact Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left: Contact Information -->
+                    <div class="contact-info">
+                        <h3>Connect With Me</h3>
+                        <p class="contact-info-subtitle">Have a question or want to chat? Reach out through any of these platforms or use the form.</p>
+                        
+                        <div class="contact-details-list">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="detail-text">
+                                    <span>Email Me</span>
+                                    <a href="mailto:umredkarkunal1@gmail.com">umredkarkunal1@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="detail-text">
+                                    <span>Location</span>
+                                    <p>India</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Area inside Contact -->
+                        <div class="social-links-area">
+                            <h4>Follow Me</h4>
+                            <div class="social-capsules">
+                                <a href="https://github.com/umredkarkunal-star" target="_blank" rel="noopener noreferrer" class="social-capsule github" data-tooltip="GitHub Profile">
+                                    <i data-lucide="github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/kunal-umredkar-904a163a3" target="_blank" rel="noopener noreferrer" class="social-capsule linkedin" data-tooltip="LinkedIn Profile">
+                                    <i data-lucide="linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://instagram.com/kunal_umredkar18" target="_blank" rel="noopener noreferrer" class="social-capsule instagram" data-tooltip="Instagram Profile">
+                                    <i data-lucide="instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="mailto:umredkarkunal1@gmail.com" class="social-capsule email" data-tooltip="Send Email">
+                                    <i data-lucide="mail"></i>
+                                    <span>Email</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" class="contact-form">
+                            <h3>Send a Message</h3>
+                            <p class="form-instruction">Fill out the form below. Clicking send will open WhatsApp automatically with your message details.</p>
+
+                            <div class="form-group">
+                                <label for="userName">Name</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="userName" name="name" placeholder="John Doe" class="input" required>
+                                </div>
+                                <span class="error-msg" id="nameError">Please enter your name</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">Email</label>
+                                <div class="input-wrapper">
+                                    <input type="email" id="userEmail" name="email" placeholder="john@example.com" class="input" required>
+                                </div>
+                                <span class="error-msg" id="emailError">Please enter a valid email address</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userMessage">Message</label>
+                                <div class="input-wrapper">
+                                    <textarea id="userMessage" name="message" rows="5" class="input" placeholder="Tell me about your project, query, or collaboration ideas..." required></textarea>
+                                </div>
+                                <span class="error-msg" id="messageError">Please enter a message</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit comic-button">
+                                <span>Send Message</span>
+                                <i data-lucide="send"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#home" class="logo footer-logo">
+                        <img src="logo.png" alt="KU" class="logo-image">
+                    </a>
+                    <p class="footer-tagline">Web Developer | Cybersecurity Enthusiast</p>
+                </div>
+
+                <div class="footer-social-col">
+                    <h4 class="footer-heading">Stay Connected</h4>
+                    <div class="footer-social-capsules">
+                        <a href="https://github.com/umredkarkunal-star" target="_blank" rel="noopener noreferrer" class="footer-social-pill github">GitHub</a>
+                        <a href="https://linkedin.com/in/kunal-umredkar-904a163a3" target="_blank" rel="noopener noreferrer" class="footer-social-pill linkedin">LinkedIn</a>
+                        <a href="https://instagram.com/kunal_umredkar18" target="_blank" rel="noopener noreferrer" class="footer-social-pill instagram">Instagram</a>
+                        <a href="mailto:umredkarkunal1@gmail.com" class="footer-social-pill email">
+                            <i data-lucide="mail"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Kunal Umredkar. All rights reserved.</p>
+                <button class="back-to-top-thin" id="backToTopBtn" aria-label="Back to Top">
+                    <i data-lucide="arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ElevenLabs Voice AI Agent -->
+    <elevenlabs-convai id="elevenlabs-agent" agent-id="agent_4501m0qm7c53f8ttkkekx9f31pj2"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Portfolio JS Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
