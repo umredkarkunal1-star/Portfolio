@@ -85,7 +85,6 @@ Portfolio/
 ## 📬 Contact
 
 - **Email:** [umredkarkunal1@gmail.com](mailto:umredkarkunal1@gmail.com)
-- **Phone:** [+91 8767373962](tel:+918767373962)
 - **GitHub:** [umredkarkunal-star](https://github.com/umredkarkunal-star)
 - **LinkedIn:** [Kunal Umredkar](https://linkedin.com/in/kunal-umredkar-904a163a3)
 - **Instagram:** [@kunal_umredkar18](https://instagram.com/kunal_umredkar18)
