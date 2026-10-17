@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {
   "name": "kunal-portfolio",
   "private": true,
@@ -17,7 +17,7 @@
   },
   "devDependencies": {}
 }
-=======
+
 {
   "name": "kunal-portfolio",
   "private": true,
@@ -36,4 +36,4 @@
   },
   "devDependencies": {}
 }
->>>>>>> 66b9237 (Add portfolio application files)
+
