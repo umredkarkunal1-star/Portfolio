@@ -122,8 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const header = document.querySelector('.header');
     const scrollProgressBar = document.getElementById('scrollProgress');
+        let scrollUpdatePending = false;
 
     window.addEventListener('scroll', () => {
+            if (scrollUpdatePending) return;
+            scrollUpdatePending = true;
+
+            requestAnimationFrame(() => {
+                scrollUpdatePending = false;
+
         // Sticky class
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -138,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scrollProgressBar) {
             scrollProgressBar.style.width = `${scrolled}%`;
         }
+        });
     });
 
     // ==========================================================================
@@ -493,8 +501,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const backToTopBtn = document.getElementById('backToTopBtn');
     const whatsappFloat = document.getElementById('whatsappFloat');
+    let backToTopUpdatePending = false;
 
     window.addEventListener('scroll', () => {
+        if (backToTopUpdatePending) return;
+        backToTopUpdatePending = true;
+
+        requestAnimationFrame(() => {
+        backToTopUpdatePending = false;
+
         // Toggle visibility
         if (window.scrollY > 400) {
             if (backToTopBtn) backToTopBtn.style.opacity = '1';
@@ -503,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (backToTopBtn) backToTopBtn.style.opacity = '0';
             if (backToTopBtn) backToTopBtn.style.pointerEvents = 'none';
         }
+        });
     });
 
     if (backToTopBtn) {
@@ -581,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Animate progress bar fill
         const fill = card.querySelector('.progress-fill');
         if (fill) {
-            const percent = fill.getAttribute('data-percent');
+            const percent = Number(fill.getAttribute('data-percent')) || 0;
             fill.style.width = `${percent}%`;
         }
 
@@ -616,10 +632,52 @@ document.addEventListener('DOMContentLoaded', () => {
         const grid = document.getElementById('skillsGrid');
         const container = document.querySelector('.skills-grid-container');
         const btn = document.getElementById('btnSeeAll');
-        if (!grid || !container || !btn) return;
+        if (!grid || !container) return;
+
+        const categoryDefinitions = [
+            ['DEVELOPMENT', ['HTML', 'CSS', 'JavaScript', 'React', 'Python', 'C++', 'Front-End Development', 'Web Development', 'Responsive Web Design']],
+            ['DATABASE & BACKEND', ['SQL', 'RDBMS', 'Supabase', 'API Integration']],
+            ['DATA ANALYSIS', ['Data Analysis', 'Data Processing', 'Data Manipulation', 'Data Cleaning', 'Data Preparation', 'Data Visualization', 'Statistics', 'NumPy', 'Pandas', 'Power BI', 'Dashboard Building']],
+            ['AI & MODERN TOOLS', ['Generative AI', 'AI-Assisted Development', 'Prompt Engineering', 'Cursor AI', 'GitHub']],
+            ['CYBERSECURITY', ['Cybersecurity', 'Network Security']],
+            ['PROFESSIONAL SKILLS', ['Problem Solving', 'Research Skills', 'Project Management', 'Team Collaboration', 'Presentation Skills', 'Time Management', 'English']]
+        ];
+        const cardGrid = grid.querySelector('.skill-group-grid');
+        const cardsByName = new Map([...grid.querySelectorAll('.skill-card')].map(card => [card.querySelector('h3')?.textContent.trim(), card]));
+
+        if (cardGrid && !cardGrid.parentElement.classList.contains('skill-group')) {
+            const fragment = document.createDocumentFragment();
+            categoryDefinitions.forEach(([title, skillNames]) => {
+                const group = document.createElement('div');
+                group.className = 'skill-group';
+
+                const heading = document.createElement('div');
+                heading.className = 'skill-group-title';
+                heading.textContent = title;
+
+                const categoryGrid = document.createElement('div');
+                categoryGrid.className = 'skill-group-grid';
+                skillNames.forEach(skillName => {
+                    const card = cardsByName.get(skillName);
+                    if (card) categoryGrid.appendChild(card);
+                });
+
+                group.append(heading, categoryGrid);
+                fragment.appendChild(group);
+            });
+            grid.replaceChildren(fragment);
+        }
+
+        if (!btn) {
+            container.style.maxHeight = 'none';
+            return;
+        }
 
         let isExpanded = false;
         let resizeTimeout = null;
+        const categoryGroups = Array.from(grid.querySelectorAll('.skill-group'));
+        const extraDevelopmentCard = [...grid.querySelectorAll('.skill-card')]
+            .find(card => card.querySelector('h3')?.textContent.trim() === 'Responsive Web Design');
 
         // Card mouse movement glow effect
         const setupCardGlows = () => {
@@ -635,87 +693,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        // Determine which cards fall into row 3 or below
-        const getRow3StartIndex = (cards) => {
-            if (cards.length === 0) return 0;
-            const firstTop = cards[0].offsetTop;
-            let secondTop = -1;
-            
-            for (let i = 0; i < cards.length; i++) {
-                const top = cards[i].offsetTop;
-                if (top > firstTop) {
-                    if (secondTop === -1) {
-                        secondTop = top;
-                    } else if (top > secondTop) {
-                        return i; // First card of row 3
-                    }
-                }
-            }
-            return cards.length; // No row 3 exists
-        };
-
-        // Recalculate layout heights based on visibility state
         const updateSkillsVisibility = (collapseOnly = false) => {
-            const cards = Array.from(grid.querySelectorAll('.skill-card'));
-            if (cards.length === 0) return;
-
-            // Reset container height & remove classes to perform clean offset checks
-            container.style.maxHeight = '';
-            cards.forEach(card => {
-                card.style.transition = 'none';
-                card.classList.remove('skill-card-hidden');
+            isExpanded = collapseOnly ? false : isExpanded;
+            container.style.maxHeight = 'none';
+            categoryGroups.forEach((group, index) => {
+                group.classList.toggle('skill-group-hidden', !isExpanded && index > 0);
             });
+            extraDevelopmentCard?.classList.toggle('skill-card-hidden', !isExpanded);
 
-            // Force browser reflow to read correct offsetTops
-            grid.offsetHeight;
-
-            const row3StartIndex = getRow3StartIndex(cards);
-
-            // Re-enable transitions
-            cards.forEach(card => {
-                card.style.transition = '';
-            });
-
-            if (!isExpanded || collapseOnly) {
-                // Collapsed state: Hide row 3+ cards
-                for (let i = row3StartIndex; i < cards.length; i++) {
-                    cards[i].classList.add('skill-card-hidden');
-                }
-
-                // Compute exact height for the first 2 rows
-                const lastVisibleIndex = Math.min(row3StartIndex - 1, cards.length - 1);
-                const lastVisibleCard = cards[lastVisibleIndex];
-                const gridRect = grid.getBoundingClientRect();
-                const cardRect = lastVisibleCard.getBoundingClientRect();
-                const collapsedHeight = (cardRect.bottom - gridRect.top) + 6; // slightly pad
-
-                container.style.maxHeight = `${collapsedHeight}px`;
-                isExpanded = false;
-                btn.classList.remove('active');
-                btn.querySelector('span').textContent = 'See All Skills';
-                container.classList.remove('expanded');
-            } else {
-                // Expanded state: Set height to fit everything
-                container.style.maxHeight = `${grid.scrollHeight + 10}px`;
+            if (isExpanded) {
                 container.classList.add('expanded');
                 btn.classList.add('active');
-                btn.querySelector('span').textContent = 'Show Less';
-
-                // Stagger reveal animation for hidden cards
-                let delay = 0;
-                cards.forEach((card, index) => {
-                    if (index >= row3StartIndex) {
-                        setTimeout(() => {
-                            if (isExpanded) {
-                                card.classList.remove('skill-card-hidden');
-                                card.classList.add('reveal-visible');
-                                animateProgressAndCounter(card);
-                            }
-                        }, delay);
-                        delay += 120; // Stagger delay
-                    }
-                });
+                btn.querySelector('span').textContent = 'See Less';
+            } else {
+                container.classList.remove('expanded');
+                btn.classList.remove('active');
+                btn.querySelector('span').textContent = 'See More';
             }
+
+            requestAnimationFrame(() => {
+                const visibleContent = isExpanded
+                    ? grid.getBoundingClientRect().height
+                    : categoryGroups[0]?.getBoundingClientRect().height ?? 0;
+                container.style.maxHeight = `${visibleContent}px`;
+            });
         };
 
         // Set up event listeners
@@ -736,8 +737,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // Slightly delay initial calculation to ensure DOM is fully rendered
         setTimeout(() => {
             updateSkillsVisibility(true);
+            grid.querySelectorAll('.skill-card:not(.skill-card-hidden)').forEach(animateProgressAndCounter);
         }, 100);
     }
+
+    const syncHeroStatsPlacement = () => {
+        const stats = document.querySelector('#home .hero-stats, #about .hero-stats');
+        const heroContent = document.querySelector('#home .hero-content');
+        const aboutContent = document.querySelector('#about .about-content');
+        const infoCards = document.querySelector('#about .info-cards-grid');
+        if (!stats || !heroContent || !aboutContent || !infoCards) return;
+
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            infoCards.insertAdjacentElement('afterend', stats);
+        } else {
+            heroContent.appendChild(stats);
+        }
+    };
+
+    syncHeroStatsPlacement();
+    window.addEventListener('resize', syncHeroStatsPlacement);
 
     // Initialize Skills Section
     initSkillsSection();

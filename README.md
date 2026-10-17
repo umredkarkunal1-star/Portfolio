@@ -11,7 +11,6 @@ I am Kunal Umredkar, a BCA 2nd-year student passionate about technology, web dev
 - 🎓 Education: BCA 2nd Year
 - 📍 Location: India
 - ✉️ Email: umredkarkunal1@gmail.com
-- 📞 Phone: +91 8767373962
 
 ## ✨ Features
 
@@ -47,15 +46,16 @@ I am Kunal Umredkar, a BCA 2nd-year student passionate about technology, web dev
 
 | Project | Description | Tech |
 |---|---|---|
-| [Student Management System](https://mystudentmanagmentsystem.netlify.app/) | Platform for organizing student records, grades, and academic information | HTML, CSS, JavaScript |
-| [We Care Hospital Booking System](https://we-care-hospital-653533469163.asia-southeast1.run.app/) | Hospital appointment and booking platform with patient registration and doctor schedules | Web App, SQL, Responsive |
-| [Flux Invoice Generator](https://flux-invoice-app.lovable.app/) | Application to create, customize, calculate, and print professional invoices | JavaScript, PDF Gen, Tool |
-| [Weather Live App](https://weatherlive.lovable.app/) | Real-time weather app with forecasts and location-based search | API, JSON, Geolocation |
-| [To Do App](https://technovais.netlify.app/) | Task management app for organizing and tracking daily activities | Local Storage, CSS3, Interactive |
+| [Personal Portfolio](https://portfolio-beta-three-71.vercel.app/) | A modern portfolio website showcasing skills, projects, and achievements | React, Vite, CSS |
+| [Employee Data Cleaning](https://github.com/umredkarkunal1-star/Data_Cleaning_with_Pandas_And_Numpy) | Cleaned and preprocessed a 5,000-record employee dataset into a structured format ready for analysis | Python, Pandas, NumPy |
+| [OpenCV Image Editor](https://github.com/umredkarkunal1-star/OpenCV1) | Menu-driven image editor offering basic image-processing operations | Python, OpenCV |
+| [Weather Live](https://weatherlive.lovable.app/) | Weather application for checking current conditions and forecasts | Web App |
+| [Flux Invoice Generator](https://flux-invoice-app.lovable.app/) | Online invoice generator for creating and managing professional invoices | Web App |
 
 ## 🏆 Certificates
 
 - **Data Analyst Certificate** – Completed a Data Analyst certification program covering data analysis, visualization, Excel, SQL, Power BI, and Python.
+- **Data Science Certificate** – Completed The Ultimate Job Ready Data Science Course, authorized by CodeWithHarry.
 
 ## 📁 Project Structure
 
